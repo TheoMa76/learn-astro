@@ -1,0 +1,21 @@
+---
+const { text = "Demander un devis" } = Astro.props;
+---
+
+<div class="text-center mx-auto w-fit">
+    <button
+    class="bg-gradient-to-r from-[var(--color-primary)] to-[var(--color-secondary)] mx-auto
+            text-white font-semibold py-3 px-6 rounded-full
+            shadow-lg hover:shadow-xl transition-shadow duration-300 cursor-pointer text-center
+        hover:bg-[var(--color-secondary)] focus:outline-none focus:ring-2 focus:ring-[var(--color-primary)] focus:ring-offset-2"
+    type="button"
+    >
+    {text}
+    </button>
+</div>
+
+<style>
+button:hover {
+  filter: brightness(1.05);
+}
+</style>

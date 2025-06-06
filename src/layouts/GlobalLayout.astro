@@ -2,6 +2,9 @@
 import "../styles/global.css";
 import Navbar from "../components/Navbar.astro";
 import logo from '../../public/images/logo.png';
+import Footer from "../components/Footer.astro";
+import Faq from "../components/Faq.astro";
+import DevisButton from "../components/DevisButton.astro";
 
 
 const { title = "PixelPerfect" } = Astro.props;
@@ -31,9 +34,9 @@ const { title = "PixelPerfect" } = Astro.props;
         </header>
         <main class="mx-auto my-5 max-w-7xl px-4 sm:px-6 lg:px-8 w-full">
             <slot name="content"/>
+            <DevisButton />
+            <Faq />
         </main>
-        <footer>
-            <slot name="footer" />
-        </footer>
+        <Footer />
     </body>
 </html>
