@@ -1,0 +1,53 @@
+---
+import GlobalLayout from "../layouts/GlobalLayout.astro";
+import FormComponent from "../components/Form.tsx";
+
+const fields = [
+  {
+    name: "Nom",
+    type: "text",
+    required: true,
+    minLength: 2,
+    maxLength: 50,
+    placeholder: "Votre nom",
+  },
+  {
+    name: "Email",
+    type: "email",
+    required: true,
+    placeholder: "votre@email.com",
+  },
+  {
+    name: "Message",
+    type: "text",
+    required: true,
+    minLength: 10,
+    maxLength: 1000,
+    placeholder: "Votre message",
+  },
+];
+
+
+const handleSubmit = (data: Record<string, string>) => {
+  console.log("Formulaire soumis :", data);
+
+};
+---
+
+<GlobalLayout>
+  <div slot="content">
+    <h1 class="text-3xl md:text-4xl lg:text-5xl font-bold text-center mb-8 animate-gradient">
+      Contactez-nous
+    </h1>
+    <p class="text-lg md:text-xl lg:text-2xl text-center mb-6">
+      Nous sommes là pour vous aider. N'hésitez pas à nous contacter pour toute question ou demande de devis.
+    </p>
+
+    <FormComponent
+      fields={fields}
+      submitText="Envoyer le message"
+      className="mt-8"
+      client:visible
+    />
+  </div>
+</GlobalLayout>

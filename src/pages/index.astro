@@ -1,16 +1,140 @@
 ---
+import Card from '../components/Card.astro';
+import TextImage from '../components/TextImage.astro';
+import GlobalLayout from '../layouts/GlobalLayout.astro';
+import GradienBorderText from '../components/GradienBorderText.astro';
+import FormComponent from '../components/Form';
 
+const fields = [
+  {
+    name: "Nom",
+    type: "text",
+    required: true,
+    minLength: 2,
+    maxLength: 50,
+    placeholder: "Votre nom",
+  },
+  {
+    name: "Email",
+    type: "email",
+    required: true,
+    placeholder: "votre@email.com",
+  },
+  {
+    name: "Message",
+    type: "text",
+    required: true,
+    minLength: 10,
+    maxLength: 1000,
+    placeholder: "Votre message",
+  },
+];
 ---
 
-<html lang="en">
-	<head>
-		<meta charset="utf-8" />
-		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-		<meta name="viewport" content="width=device-width" />
-		<meta name="generator" content={Astro.generator} />
-		<title>Astro</title>
-	</head>
-	<body>
-		<h1>Astro</h1>
-	</body>
-</html>
+<GlobalLayout>
+	<div slot="content">
+		<h1
+			class="text-3xl md:text-4xl lg:text-5xl font-bold text-center mb-8 animate-gradient"
+			style="
+				background: linear-gradient(90deg, var(--color-primary), var(--color-secondary), var(--color-primary));
+				background-size: 200% 200%;
+				-webkit-background-clip: text;
+				-webkit-text-fill-color: transparent;
+				background-clip: text;
+				color: transparent;
+				animation: gradient-move 3s ease-in-out infinite;
+			"
+		>
+			Bienvenue sur PixelPerfect
+		</h1>
+		<style>
+			@keyframes gradient-move {
+				0% {
+					background-position: 0% 50%;
+				}
+				50% {
+					background-position: 100% 50%;
+				}
+				100% {
+					background-position: 0% 50%;
+				}
+			}
+		</style>
+		<GradienBorderText text="PixelPerfect est une agence web spécialisée dans la création de sites internet sur-mesure, de A à Z. Notre équipe passionnée vous accompagne pour réaliser des projets digitaux uniques, performants et adaptés à vos besoins." />
+		<div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-3 gap-6 p-6">
+			<h2 class="text-2xl font-bold text-center mb-6 col-span-full">Découvrez nos Services</h2>
+			<Card
+				title="Bienvenue sur PixelPerfect"
+				description="Votre solution pour des designs web impeccables."
+				image="/images/logo.png"
+				href="/services"
+			/>
+			<Card
+				title="Bienvenue sur PixelPerfect"
+				description="Votre solution pour des designs web impeccables."
+				image="/images/logo.png"
+				href="/services"
+			/>
+			<Card
+				title="Bienvenue sur PixelPerfect"
+				description="Votre solution pour des designs web impeccables."
+				image="/images/logo.png"
+				href="/services"
+			/>
+		</div>
+		<div>
+			<h2 class="text-3xl md:text-4xl lg:text-5xl font-bold text-center mb-8 animate-gradient">Pourquoi travailler avec nous ?</h2>
+			<TextImage
+				image="/images/why-choose-us.png"
+				text="Chez PixelPerfect, nous croyons que chaque projet est unique. C'est pourquoi nous mettons un point d'honneur à comprendre vos besoins spécifiques pour vous offrir des solutions sur-mesure qui répondent parfaitement à vos attentes."
+				altText="Pourquoi choisir PixelPerfect ?"
+				className="mb-8"
+			/>
+		</div>
+		<div>
+			<h2 class="text-2xl font-bold text-center mb-6">Ceux qui en parlent le mieux</h2>
+			<p class="text-base md:text-lg lg:text-xl font-medium px-4 py-4 rounded-md mb-8 text-white" style="background: linear-gradient(135deg, var(--color-primary) 40%, var(--color-secondary) 100%); opacity: 0.95;">
+				Nos clients sont notre meilleure vitrine. Découvrez leurs témoignages et laissez-vous convaincre par la qualité de nos services.
+			</p>
+			<div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-4 gap-6 p-6">
+				<Card
+					title="Jean Dupont"
+					description="PixelPerfect a transformé notre vision en réalité. Leur équipe est réactive et professionnelle."
+					image="/images/client1.PNG"
+					showRating={true}
+					rating={4.5}
+				/>
+				<Card
+					title="Marc Lefevre"
+					description="Un service impeccable et un design à couper le souffle. Je recommande vivement PixelPerfect !"
+					image="/images/client2.PNG"
+					showRating={true}
+					rating={5}
+				/>
+				<Card
+					title="Sébastien Martin"
+					description="Une expérience de collaboration exceptionnelle. PixelPerfect a su répondre à tous nos besoins."
+					image="/images/client3.PNG"
+					showRating={true}
+					rating={4}
+				/>
+				<Card
+					title="Claire Dubois"
+					description="Des résultats au-delà de nos attentes. Merci à l'équipe de PixelPerfect !"
+					image="/images/client4.PNG"
+					showRating={true}
+					rating={4.5}
+				/>
+			</div>
+		</div>
+		<div class="p-6 bg-[var(--color-secondary)] rounded-md shadow-md mt-8">
+			<h2 class="text-3xl md:text-4xl lg:text-5xl font-bold text-center mb-8 animate-gradient text-[var(--color-primary)]">Contactez-nous</h2>
+			<GradienBorderText text="Nous sommes là pour vous aider. N'hésitez pas à nous contacter pour toute question ou demande de devis." />
+			<FormComponent
+				fields={fields}
+				submitText="Envoyer le message"
+				client:visible
+				/>
+		</div>
+	</div>
+</GlobalLayout>
