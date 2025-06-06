@@ -24,7 +24,7 @@ const { links = [], logo, logoAlt = "PixelPerfect Logo",colorPrimary,colorSecond
     <div class="flex justify-between h-20 items-center">
       <div class="flex items-center">
         <a href="/" class="flex items-center">
-        <Picture src={logo || "/placeholder.svg"} format="webp" alt={logoAlt} width={100} height={100} class="w-24 h-auto" loading={"lazy"} />
+        <Picture src={logo || "/placeholder.svg"} formats={['avif', 'webp']} alt={logoAlt} width={100} height={100} class="w-24 h-auto" loading={"lazy"} />
         </a>
       </div>
 
