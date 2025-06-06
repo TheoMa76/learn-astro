@@ -1,0 +1,15 @@
+---
+interface Props {
+  text: string;
+}
+
+const { text } = Astro.props;
+---
+
+<div class="relative p-[5px] rounded-md" style="background: linear-gradient(135deg, var(--color-primary) 40%, var(--color-secondary) 100%)">
+  <div class="bg-white bg-opacity-80 rounded-md p-4 grid place-items-center">
+    <p class="text-base md:text-lg lg:text-xl font-medium text-gray-900 text-center">
+      {text}
+    </p>
+  </div>
+</div>

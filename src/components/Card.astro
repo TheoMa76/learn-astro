@@ -1,0 +1,86 @@
+---
+import { Image } from "astro:assets";
+
+const { title, description, image, href, showRating = false, rating = 0 } = Astro.props;
+
+function getStars(rating: number) {
+  const stars = [];
+  for (let i = 1; i <= 5; i++) {
+    if (rating >= i) {
+      stars.push("full");
+    } else if (rating >= i - 0.5) {
+      stars.push("half");
+    } else {
+      stars.push("empty");
+    }
+  }
+  return stars;
+}
+
+const stars = showRating ? getStars(rating) : [];
+---
+<a href={href} class="block max-w-sm rounded-lg overflow-hidden shadow-lg bg-white transition-transform duration-300 hover:scale-105 hover:shadow-2xl">
+  {image && (
+    <Image
+        src={image}
+        alt={title}
+        width={100}
+        height={100}
+        class="w-full h-48 object-contain transition-opacity duration-300 hover:opacity-90 bg-white"
+        />
+  )}
+  <div class="p-6">
+    <h2 class="text-xl font-semibold mb-2">{title}</h2>
+    <p class="text-gray-600 mb-2">{description}</p>
+
+    {showRating && (
+      <div class="flex items-center space-x-1">
+        {stars.map((type, index) => (
+          <div class="relative w-5 h-5" style="color: var(--color-secondary)">
+            <svg
+              class="absolute top-0 left-0 w-5 h-5"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="1.5"
+              viewBox="0 0 24 24"
+            >
+              <path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z" />
+            </svg>
+
+            {type === "full" && (
+              <svg
+                class="absolute top-0 left-0 w-5 h-5"
+                fill="currentColor"
+                stroke="currentColor"
+                stroke-width="1.5"
+                viewBox="0 0 24 24"
+              >
+                <path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z" />
+              </svg>
+            )}
+
+            {type === "half" && (
+              <svg
+                class="absolute top-0 left-0 w-5 h-5"
+                fill="currentColor"
+                stroke="currentColor"
+                stroke-width="1.5"
+                viewBox="0 0 24 24"
+              >
+                <defs>
+                  <clipPath id={`half-clip-${index}`}>
+                    <rect x="0" y="0" width="12" height="24" />
+                  </clipPath>
+                </defs>
+                <path
+                  d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"
+                  clip-path={`url(#half-clip-${index})`}
+                />
+              </svg>
+            )}
+          </div>
+        ))}
+      </div>
+    )}
+  </div>
+</a>
