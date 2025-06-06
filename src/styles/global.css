@@ -39,7 +39,7 @@
 }
 
 .layer-white {
-  background: black;
+  background: var(--color-primary);
   margin-left: -15%;
   transform: none;
 }
