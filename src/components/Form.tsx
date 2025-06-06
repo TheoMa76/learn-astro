@@ -120,7 +120,7 @@ export default function FormComponent({ fields, onSubmit, submitText = "Soumettr
   }
 
     return (
-    <div className="relative p-[4px] rounded-md mt-5" style={{ background: "linear-gradient(135deg, var(--color-primary) 40%, var(--color-secondary) 100%)" }}>
+    <div className="relative p-[4px] rounded-md my-5" style={{ background: "linear-gradient(135deg, var(--color-primary) 40%, var(--color-secondary) 100%)" }}>
         <div className="bg-white bg-opacity-80 rounded-md">
         {title && <h3 className="text-2xl md:text-3xl lg:text-3xl font-bold text-center mb-8 animate-gradient">{title}</h3>}
         {description && <p className="text-gray-600 mb-4">{description}</p>}

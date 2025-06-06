@@ -1,0 +1,13 @@
+---
+import BreadCrumb from "../components/BreadCrumb.astro";
+import GlobalLayout from "./GlobalLayout.astro";
+
+
+---
+
+<GlobalLayout>
+    <div slot="content">
+        <slot name="blog-content" />
+    </div>
+    <BreadCrumb />
+</GlobalLayout>
