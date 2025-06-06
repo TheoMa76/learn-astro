@@ -1,47 +1,75 @@
-# Astro Starter Kit: Minimal
+🌐 PixelPerfect – Site vitrine (Astro)
+Bienvenue sur PixelPerfect, le site vitrine d'une agence web fictive, développé dans le but de découvrir et maîtriser Astro, un framework moderne pensé pour des sites ultra-performants, accessibles, et bien structurés.
 
-```sh
-npm create astro@latest -- --template minimal
-```
+🔗 Site en ligne : https://pixelperfectastro.netlify.app/
 
-[![Open in StackBlitz](https://developer.stackblitz.com/img/open_in_stackblitz.svg)](https://stackblitz.com/github/withastro/astro/tree/latest/examples/minimal)
-[![Open with CodeSandbox](https://assets.codesandbox.io/github/button-edit-lime.svg)](https://codesandbox.io/p/sandbox/github/withastro/astro/tree/latest/examples/minimal)
-[![Open in GitHub Codespaces](https://github.com/codespaces/badge.svg)](https://codespaces.new/withastro/astro?devcontainer_path=.devcontainer/minimal/devcontainer.json)
+🚀 Objectifs du projet
+Ce projet a été conçu pour :
 
-> 🧑‍🚀 **Seasoned astronaut?** Delete this file. Have fun!
+Apprendre à utiliser Astro de manière concrète
 
-## 🚀 Project Structure
+Construire une architecture claire et réutilisable
 
-Inside of your Astro project, you'll see the following folders and files:
+Explorer les performances natives d’Astro grâce à l’optimisation du rendu statique
 
-```text
+Suivre les bonnes pratiques d’accessibilité
+
+Mettre en place un design responsive pour tous les supports
+
+🧩 Fonctionnalités et structure
+✅ Composants réutilisables
+Le projet utilise une approche modulaire, avec des composants Astro personnalisés (et potentiellement des composants React ou autres à l’avenir). Cela permet :
+
+Une meilleure organisation du code
+
+Une réutilisabilité sur plusieurs pages
+
+Une maintenabilité facilitée
+
+⚡ Performance et accessibilité
+Grâce à Astro :
+
+Seuls les fichiers HTML, CSS et JavaScript nécessaires sont envoyés au client
+
+Le site est rapide à charger, même sur mobile
+
+L’accessibilité est prise en compte dès la conception
+
+📁 Structure du projet
+txt
+Copier
+Modifier
 /
-├── public/
+├── public/               # Contenu statique (images, favicons...)
 ├── src/
-│   └── pages/
-│       └── index.astro
-└── package.json
-```
+│   ├── components/       # Composants Astro
+│   └── pages/            # Pages du site (routées automatiquement)
+│       └── index.astro   # Page d’accueil
+├── package.json
+└── astro.config.mjs
+▶️ Lancer le projet en local
+Cloner le dépôt :
 
-Astro looks for `.astro` or `.md` files in the `src/pages/` directory. Each page is exposed as a route based on its file name.
+bash
+Copier
+Modifier
+git clone https://github.com/votre-utilisateur/pixelperfect.git
+cd pixelperfect
+Installer les dépendances :
 
-There's nothing special about `src/components/`, but that's where we like to put any Astro/React/Vue/Svelte/Preact components.
+bash
+Copier
+Modifier
+npm install
+Démarrer le serveur de développement :
 
-Any static assets, like images, can be placed in the `public/` directory.
+bash
+Copier
+Modifier
+npm run astro dev
+Accède ensuite à http://localhost:4321
 
-## 🧞 Commands
-
-All commands are run from the root of the project, from a terminal:
-
-| Command                   | Action                                           |
-| :------------------------ | :----------------------------------------------- |
-| `npm install`             | Installs dependencies                            |
-| `npm run dev`             | Starts local dev server at `localhost:4321`      |
-| `npm run build`           | Build your production site to `./dist/`          |
-| `npm run preview`         | Preview your build locally, before deploying     |
-| `npm run astro ...`       | Run CLI commands like `astro add`, `astro check` |
-| `npm run astro -- --help` | Get help using the Astro CLI                     |
-
-## 👀 Want to learn more?
-
-Feel free to check [our documentation](https://docs.astro.build) or jump into our [Discord server](https://astro.build/chat).
+📦 Scripts disponibles
+Commande	Description
+npm install	Installe les dépendances
+npm run astro dev	Démarre le serveur de dev sur localhost:4321
