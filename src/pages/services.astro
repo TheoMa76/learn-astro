@@ -1,0 +1,56 @@
+---
+import GlobalLayout from '../layouts/GlobalLayout.astro';
+import Card from '../components/Card.astro';
+import GradienBorderText from '../components/GradienBorderText.astro';
+
+const services = [
+  {
+    title: "Web Design & Développement",
+    description: "Création de sites vitrines et e‑commerce beaux, rapides, et sécurisés, avec wireframes, UI soignée et CMS sur-mesure.",
+    image: "/images/services.jpg"
+  },
+  {
+    title: "Optimisation SEO",
+    description: "Référencement naturel, audit technique, optimisation on‑page/off‑page pour améliorer votre visibilité sur les moteurs de recherche.",
+    image: "/images/services.jpg"
+  },
+  {
+    title: "Applications & PWAs",
+    description: "Développement d'applications mobiles et web progressives, performantes et installables, compatibles iOS, Android et desktop.",
+    image: "/images/services.jpg"
+  },
+  {
+    title: "Branding & UX/UI Design",
+    description: "Identité visuelle, logos, prototypes UX et tests utilisateurs pour garantir une navigation intuitive et impactante.",
+    image: "/images/services.jpg"
+  },
+];
+---
+
+<GlobalLayout>
+  <div slot="content" class="space-y-16 px-6 md:px-12 py-12">
+    <section class="text-center space-y-6">
+      <h1 class="text-4xl font-bold text-[color:var(--color-primary)]">
+        Nos Services
+      </h1>
+      <GradienBorderText text="Découvrez comment PixelPerfect accompagne la réussite de votre projet digital, grâce à une offre claire, complète et personnalisée." />
+    </section>
+
+    <section class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
+      {services.map(s => (
+        <Card
+          title={s.title}
+          description={s.description}
+          image={s.image}
+        />
+      ))}
+    </section>
+
+    <section class="text-center space-y-4 py-12">
+      <GradienBorderText text="Chaque service est pensé pour s'intégrer à votre stratégie : design accrocheur, performance SEO, expérience mobile sans faille et image de marque mémorable." />
+      <p class="text-black">
+        En combinant ces compétences, nous produisons des solutions digitales qui suscitent l'engagement, génèrent de la conversion et mettent en valeur votre expertise.
+      </p>
+    </section>
+  </div>
+</GlobalLayout>

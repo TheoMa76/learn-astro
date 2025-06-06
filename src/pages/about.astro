@@ -1,0 +1,79 @@
+---
+import GlobalLayout from '../layouts/GlobalLayout.astro';
+import Card from '../components/Card.astro';
+import GradienBorderText from '../components/GradienBorderText.astro';
+import "../styles/global.css";
+
+const team = [
+  {
+    name: "Alice Durand",
+    role: "CEO & Fondatrice",
+    bio: "Alice a lancé PixelPerfect en 2018 avec la vision de transformer le web en espaces visuels raffinés et performants.",
+    image: "/images/team/alice.jpg",
+  },
+  {
+    name: "Lucas Martin",
+    role: "Lead Developer",
+    bio: "Spécialiste front-end et back-end, Lucas assure un code propre, accessible et optimisé pour chaque projet.",
+    image: "/images/team/lucas.jpg",
+  },
+  {
+    name: "Mélanie Petit",
+    role: "UX/UI Designer",
+    bio: "Passionnée par l’expérience utilisateur, Mélanie crée des interfaces intuitives et visuellement fortes.",
+    image: "/images/team/melanie.jpg",
+  },
+];
+---
+
+<GlobalLayout>
+  <div slot="content" class="space-y-16 px-6 md:px-12 py-12">
+    <section class="space-y-4 text-center">
+      <h1 class="text-4xl font-bold text-[color:var(--color-primary)]">Notre Histoire</h1>
+      <GradienBorderText text="Fondée en 2018, PixelPerfect a vu le jour autour d’une passion commune : offrir des sites web élégants,accessibles et pleinement performants. Tout a commencé dans un petit bureau partagé, où notrepremière cliente utilisait notre site pour vendre ses créations – un succès qui nous a prouvéqu’esthétique et utilité pouvaient cohabiter ." />
+      <p>
+        Depuis, notre parcours a été guidé par l’innovation technique et la recherche d’UI épurée.
+        Chaque projet est avant tout une rencontre : celle avec votre vision, votre histoire, votre besoin.
+      </p>
+    </section>
+
+    <section class="space-y-4 text-center">
+      <h2 class="text-3xl font-semibold text-[color:var(--color-primary)]">Nos Valeurs</h2>
+      <ul class="grid grid-cols-1 sm:grid-cols-3 gap-6 text-black">
+        <li class="bg-[color:var(--color-secondary)]/10 p-6 rounded-lg shadow-sm">
+          <h3 class="font-bold mb-2 text-[color:var(--color-primary)]">Excellence</h3>
+          <p>Chaque pixel compte : nous visons une qualité sans compromis.</p>
+        </li>
+        <li class="bg-[color:var(--color-secondary)]/10 p-6 rounded-lg shadow-sm">
+          <h3 class="font-bold mb-2 text-[color:var(--color-primary)]">Transparence</h3>
+          <p>Du cahier des charges à la livraison, tout est clair pour vous.</p>
+        </li>
+        <li class="bg-[color:var(--color-secondary)]/10 p-6 rounded-lg shadow-sm">
+          <h3 class="font-bold mb-2 text-[color:var(--color-primary)]">Collaboration</h3>
+          <p>Vos idées inspirent nos créations : chaque client est un partenaire.</p>
+        </li>
+      </ul>
+    </section>
+
+    <section class="space-y-4 text-center">
+      <h2 class="text-3xl font-semibold text-[color:var(--color-primary)]">Rencontrez l'équipe</h2>
+      <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-8">
+        {team.map(member => (
+          <Card
+            title={member.name}
+            description={`${member.role} : ${member.bio}`}
+            image={member.image}
+          />
+        ))}
+      </div>
+    </section>
+
+    <section class="bg-white text-black py-12">
+      <GradienBorderText text="Aujourd’hui, PixelPerfect est fier d’accompagner une clientèle variée : PME locales, startups innovantes ou e-commerces ambitieux. Nous croyons qu’un beau site est d’abord un site utile." />
+      <p class="text-center">
+        Et dans les années à venir, nous continuerons à faire évoluer notre expertise : Progressive Web Apps,
+        accessibilité renforcée, intégrations headless CMS… tout en restant fidèles à notre éthique.
+      </p>
+    </section>
+  </div>
+</GlobalLayout>

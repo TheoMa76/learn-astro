@@ -1,6 +1,7 @@
 ---
 import GlobalLayout from "../layouts/GlobalLayout.astro";
 import FormComponent from "../components/Form.tsx";
+import GradienBorderText from "../components/GradienBorderText.astro";
 
 const fields = [
   {
@@ -35,18 +36,20 @@ const handleSubmit = (data: Record<string, string>) => {
 ---
 
 <GlobalLayout>
-  <div slot="content">
-    <h1 class="text-3xl md:text-4xl lg:text-5xl font-bold text-center mb-8 animate-gradient">
-      Contactez-nous
-    </h1>
-    <p class="text-lg md:text-xl lg:text-2xl text-center mb-6">
-      Nous sommes là pour vous aider. N'hésitez pas à nous contacter pour toute question ou demande de devis.
-    </p>
+	<div slot="content" class="space-y-16 px-6 md:px-12 py-12">
+    <section class="text-center space-y-6">
+      <h1 class="text-4xl font-bold text-[color:var(--color-primary)]">      
+        Contactez-nous
+      </h1>
+
+    <GradienBorderText 
+      text="Nous nous efforçons de répondre à toutes les demandes dans les plus brefs délais. Notre équipe s’engage à vous apporter une réponse personnalisée, généralement sous 24 à 48 heures. Merci de votre confiance et de votre patience !" 
+    />
+    </section>
 
     <FormComponent
       fields={fields}
       submitText="Envoyer le message"
-      className="mt-8"
       client:visible
     />
   </div>
