@@ -1,4 +1,5 @@
 ---
+import { Picture } from "astro:assets";
 import { Image } from "astro:assets";
 
 const { title, description, image, href, showRating = false, rating = 0 } = Astro.props;
@@ -21,9 +22,10 @@ const stars = showRating ? getStars(rating) : [];
 ---
 <a href={href} class="block max-w-sm rounded-lg overflow-hidden shadow-lg bg-white transition-transform duration-300 hover:scale-105 hover:shadow-2xl">
   {image && (
-    <Image
+    <Picture
         src={image}
         alt={title}
+        format={"webp"}
         width={100}
         height={100}
         class="w-full h-48 object-contain transition-opacity duration-300 hover:opacity-90 bg-white"
