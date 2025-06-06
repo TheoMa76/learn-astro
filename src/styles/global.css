@@ -1,8 +1,11 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Space+Grotesk:wght@500;600;700&display=swap');
 @import "tailwindcss";
 
 :root {
     --color-primary: #a224bc;
     --color-secondary: #cbea5b;
+    --font-body: 'Inter', sans-serif;
+    --font-heading: 'Space Grotesk', sans-serif;
 }
 
 .breadcrumb-wrapper {
@@ -10,6 +13,15 @@
   width: 100%;
   min-height: 50px;
   overflow: hidden;
+}
+
+body {
+  font-family: var(--font-body);
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--font-heading);
+  color: var(--color-primary);
 }
 
 .breadcrumb-bg {
@@ -70,6 +82,16 @@
 /* Style de base pour le contenu Markdown */
 .prose {
   color: #374151;
+}
+
+.prose {
+  font-family: var(--font-body);
+}
+.prose h1, 
+.prose h2,
+.prose h3 {
+  font-family: var(--font-heading);
+  color: var(--color-primary);
 }
 
 .prose h2 {
