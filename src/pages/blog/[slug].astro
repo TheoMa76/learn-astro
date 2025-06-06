@@ -1,0 +1,46 @@
+---
+import { getCollection, type CollectionEntry } from 'astro:content';
+import BlogLayout from '../../layouts/BlogLayout.astro';
+import { marked } from 'marked';
+import { Image } from 'astro:assets';
+
+export const prerender = true;
+
+export async function getStaticPaths() {
+  const posts = await getCollection('blog');
+  return posts.map((post) => ({
+    params: { slug: post.slug },
+    props: { post },
+  }));
+}
+
+const { post } = Astro.props as { post: CollectionEntry<'blog'> };
+const htmlContent = marked.parse(post.body);
+---
+
+<BlogLayout>
+  <article slot="blog-content" class="max-w-3xl mx-auto p-4">
+    <Image 
+      src={post.data.image} 
+      alt={post.data.title}
+        width={100}
+        height={100}
+        loading={"lazy"}
+      class="w-full h-64 object-cover mb-6 rounded-lg shadow-md"
+    />
+    
+    <h1 class="text-4xl font-bold mb-2 text-gray-900 dark:text-white">
+      {post.data.title}
+    </h1>
+    
+    <p class="text-gray-500 text-sm mb-6">
+      {post.data.date.toLocaleDateString('fr-FR', { 
+        year: 'numeric', 
+        month: 'long', 
+        day: 'numeric' 
+      })}
+    </p>
+    
+    <div class="prose prose-lg dark:prose-invert max-w-none" set:html={htmlContent} />
+  </article>
+</BlogLayout>

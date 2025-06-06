@@ -1,0 +1,33 @@
+@use "astro-breadcrumbs/breadcrumbs.scss" with (
+  $size-font: 14px,
+  $color-link: white
+);
+
+// Personnalisations forcées
+.c-breadcrumbs {
+  &__link {
+    color: white !important;
+    text-decoration: none !important;
+    font-weight: bold !important;
+    
+    &:hover {
+      opacity: 0.8;
+    }
+    
+    // Dernier lien souligné
+    &:last-child {
+      text-decoration: underline !important;
+    }
+  }
+  
+  &__separator {
+    color: transparent !important;
+    
+    &::before {
+      content: " - " !important;
+      color: white !important;
+      margin: 0 0.5rem !important;
+      font-weight: bold !important;
+    }
+  }
+}

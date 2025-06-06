@@ -5,9 +5,14 @@ import GlobalLayout from "./GlobalLayout.astro";
 
 ---
 
-<GlobalLayout>
+<GlobalLayout
+    title="Blog - PixelPerfect"
+    button={false}
+    faq={false}>
+    <div slot="breadcrumb">
+        <BreadCrumb />
+    </div>
     <div slot="content">
         <slot name="blog-content" />
     </div>
-    <BreadCrumb />
 </GlobalLayout>

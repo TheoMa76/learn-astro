@@ -7,7 +7,7 @@ import Faq from "../components/Faq.astro";
 import DevisButton from "../components/DevisButton.astro";
 
 
-const { title = "PixelPerfect" } = Astro.props;
+const { title = "PixelPerfect",button = true, faq = true } = Astro.props;
 ---
 <html lang="fr">
     <head>
@@ -31,11 +31,12 @@ const { title = "PixelPerfect" } = Astro.props;
                 logo={logo}
                 logoAlt="PixelPerfect Logo"
                 />
+                <slot name="breadcrumb" />
         </header>
         <main class="mx-auto my-5 max-w-7xl px-4 sm:px-6 lg:px-8 w-full">
             <slot name="content"/>
-            <DevisButton />
-            <Faq />
+            {button && <DevisButton />}
+            {faq && <Faq />}
         </main>
         <Footer />
     </body>
